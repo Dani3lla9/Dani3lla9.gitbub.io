@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html lang="pt-PT">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Porto EPIC Tours - Experiências Premium na Cidade Invicta</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+
+            --primary: #0a1a2e;
+
+            --secondary: #00b4d8;
+
+            --accent: #ff7e5f;
+
+            --light: #f8f9fa;
+
+            --dark: #0a1a2e;
+
+            --text: #333;
+
+            --text-light: #6c757d;
+
+        }
+
+ 
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+ 
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+ 
+
+        body {
+
+            background-color: #000;
+
+            color: var(--light);
+
+            overflow-x: hidden;
+
+        }
+
+ 
+
+        /* Classe para títulos divididos por cores */
+
+        .split-title {
+
+            display: inline-block;
+
+        }
+
+        .split-title .white {
+
+            color: var(--light);
+
+        }
+
+        .split-title .accent {
+
+            color: var(--accent);
+
+        }
+
+ 
+
+        /* Hero Fullscreen */
+
+        .hero-section {
+
+            height: 100vh;
+
+            width: 100%;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+ 
+
+        .hero-image {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: url('https://images.unsplash.com/photo-1586023492125-27a3a5a3c3f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center;
+
+            background-size: cover;
+
+            z-index: 1;
+
+            animation: zoomOut 8s ease-out forwards;
+
+        }
+
+ 
+
+        @keyframes zoomOut {
+
+            from { transform: scale(1.3); }
+
+            to { transform: scale(1); }
+
+        }
+
+ 
+
+        .hero-overlay {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: rgba(10, 26, 46, 0.6);
+
+            z-index: 2;
+
+        }
+
+ 
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 3;
+
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 0 10%;
+
+        }
+
+ 
+
+        .hero-content h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 5rem;
+
+            font-weight: 700;
+
+            margin-bottom: 1.5rem;
+
+            line-height: 1.1;
+
+            opacity: 0;
+
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+
+        }
+
+ 
+
+        .hero-content p {
+
+            font-size: 1.5rem;
+
+            margin-bottom: 2rem;
+
+            max-width: 700px;
+
+            opacity: 0;
+
+            animation: fadeInUp 1.5s ease-out 1s forwards;
+
+        }
+
+ 
+
+        .hero-btn {
+
+            display: inline-block;
+
+            background-color: var(--accent);
+
+            color: white;
+
+            padding: 15px 30px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            font-size: 1.1rem;
+
+            transition: all 0.3s ease;
+
+            opacity: 0;
+
+            animation: fadeInUp 1.5s ease-out 1.5s forwards;
+
+        }
+
+ 
+
+        .hero-btn:hover {
+
+            background-color: #e06b4d;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        }
+
+ 
+
+        @keyframes fadeInUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+ 
+
+        /* Section Styles */
+
+        section {
+
+            padding: 100px 10%;
+
+            position: relative;
+
+        }
+
+ 
+
+        .section-header {
+
+            text-align: center;
+
+            margin-bottom: 60px;
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: all 0.6s ease;
+
+        }
+
+ 
+
+        .section-header.animate {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+ 
+
+        .section-header h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 2.8rem;
+
+            color: var(--light);
+
+            margin-bottom: 20px;
+
+        }
+
+ 
+
+        .section-header p {
+
+            font-size: 1.2rem;
+
+            color: var(--text-light);
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+        }
+
+ 
+
+        /* Tours Grid */
+
+        .tours-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+        }
+
+ 
+
+        .tour-card {
+
+            background: rgba(255, 255, 255, 0.1);
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            transition: all 0.3s ease;
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+        }
+
+ 
+
+        .tour-card.animate {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+ 
+
+        .tour-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+        }
+
+ 
+
+        .tour-image {
+
+            height: 200px;
+
+            width: 100%;
+
+            object-fit: cover;
+
+        }
+
+ 
+
+        .tour-content {
+
+            padding: 25px;
+
+        }
+
+ 
+
+        .tour-content h3 {
+
+            font-size: 1.5rem;
+
+            margin-bottom: 10px;
+
+            color: var(--light);
+
+        }
+
+ 
+
+        .tour-content p {
+
+            color: var(--text-light);
+
+            margin-bottom: 20px;
+
+        }
+
+ 
+
+        .tour-price {
+
+            font-size: 1.3rem;
+
+            font-weight: 700;
+
+            color: var(--accent);
+
+            display: block;
+
+            margin-bottom: 15px;
+
+        }
+
+ 
+
+        /* Testimonials */
+
+        .testimonials-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+        }
+
+ 
+
+        .testimonial-card {
+
+            background: rgba(255, 255, 255, 0.1);
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: all 0.6s ease;
+
+        }
+
+ 
+
+        .testimonial-card.animate {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+ 
+
+        .testimonial-text {
+
+            font-style: italic;
+
+            margin-bottom: 20px;
+
+            color: var(--light);
+
+        }
+
+ 
+
+        .testimonial-author {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+ 
+
+        .author-avatar {
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin-right: 15px;
+
+        }
+
+ 
+
+        .author-info h4 {
+
+            color: var(--light);
+
+            margin-bottom: 5px;
+
+        }
+
+ 
+
+        .author-info p {
+
+            color: var(--text-light);
+
+            font-size: 0.9rem;
+
+        }
+
+ 
+
+        /* Footer */
+
+        footer {
+
+            background-color: var(--primary);
+
+            padding: 50px 10%;
+
+            text-align: center;
+
+        }
+
+ 
+
+        .footer-logo {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 2rem;
+
+            margin-bottom: 20px;
+
+        }
+
+ 
+
+        .footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 30px;
+
+            margin-bottom: 30px;
+
+        }
+
+ 
+
+        .footer-links a {
+
+            color: var(--light);
+
+            text-decoration: none;
+
+            transition: color 0.3s ease;
+
+        }
+
+ 
+
+        .footer-links a:hover {
+
+            color: var(--accent);
+
+        }
+
+ 
+
+        .social-icons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+
+        }
+
+ 
+
+        .social-icons a {
+
+            color: var(--light);
+
+            font-size: 1.5rem;
+
+            transition: color 0.3s ease;
+
+        }
+
+ 
+
+        .social-icons a:hover {
+
+            color: var(--accent);
+
+        }
+
+ 
+
+        .copyright {
+
+            color: var(--text-light);
+
+            font-size: 0.9rem;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+
+    <section class="hero-section">
+
+        <div class="hero-image"></div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1 class="split-title">
+
+                <span class="white">Porto</span>
+
+                <span class="accent">EPIC</span>
+
+                <span class="white">Tours</span>
+
+            </h1>
+
+            <p>Experiências premium que revelam a verdadeira alma da cidade invicta, com guias especializados e roteiros exclusivos.</p>
+
+            <a href="#tours" class="hero-btn">Explore Nossos Tours</a>
+
+        </div>
+
+    </section>
+
+ 
+
+    <!-- Tours Section -->
+
+    <section id="tours">
+
+        <div class="section-header">
+
+            <h2>Nossos Tours Exclusivos</h2>
+
+            <p>Selecione entre nossas experiências cuidadosamente elaboradas para descobrir o Porto como nunca antes.</p>
+
+        </div>
+
+        <div class="tours-grid">
+
+            <!-- Tour 1 -->
+
+            <div class="tour-card">
+
+                <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Tour Histórico" class="tour-image">
+
+                <div class="tour-content">
+
+                    <h3>Porto Histórico</h3>
+
+                    <p>Um mergulho na rica história da cidade, desde a época romana até os dias atuais.</p>
+
+                    <span class="tour-price">€75/pessoa</span>
+
+                    <a href="#" class="hero-btn">Reservar</a>
+
+                </div>
+
+            </div>
+
+           
+
+            <!-- Tour 2 -->
+
+            <div class="tour-card">
+
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Tour de Vinhos" class="tour-image">
+
+                <div class="tour-content">
+
+                    <h3>Rota dos Vinhos</h3>
+
+                    <p>Descubra os segredos do vinho do Porto em caves tradicionais com degustações premium.</p>
+
+                    <span class="tour-price">€95/pessoa</span>
+
+                    <a href="#" class="hero-btn">Reservar</a>
+
+                </div>
+
+            </div>
+
+           
+
+            <!-- Tour 3 -->
+
+            <div class="tour-card">
+
+                <img src="https://images.unsplash.com/photo-1581873372793-5afa63a74d7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Tour Gastronômico" class="tour-image">
+
+                <div class="tour-content">
+
+                    <h3>Gastronomia Local</h3>
+
+                    <p>Uma jornada pelos sabores autênticos do norte de Portugal em restaurantes selecionados.</p>
+
+                    <span class="tour-price">€85/pessoa</span>
+
+                    <a href="#" class="hero-btn">Reservar</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+ 
+
+    <!-- Testimonials Section -->
+
+    <section style="background: linear-gradient(rgba(10, 26, 46, 0.9), rgba(10, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1586023492125-27a3a5a3c3f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center; background-size: cover;">
+
+        <div class="section-header">
+
+            <h2>O Que Dizem Nossos Clientes</h2>
+
+            <p>Experiências reais de viajantes que descobriram o Porto conosco.</p>
+
+        </div>
+
+        <div class="testimonials-container">
+
+            <!-- Testimonial 1 -->
+
+            <div class="testimonial-card">
+
+                <p class="testimonial-text">"O tour histórico foi incrível! Nosso guia tinha um conhecimento profundo e nos levou a lugares que nunca encontraríamos sozinhos."</p>
+
+                <div class="testimonial-author">
+
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana Silva" class="author-avatar">
+
+                    <div class="author-info">
+
+                        <h4>Ana Silva</h4>
+
+                        <p>Lisboa, Portugal</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+           
+
+            <!-- Testimonial 2 -->
+
+            <div class="testimonial-card">
+
+                <p class="testimonial-text">"A rota dos vinhos superou todas as expectativas. As caves que visitamos e os vinhos que provamos foram excepcionais."</p>
+
+                <div class="testimonial-author">
+
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mendes" class="author-avatar">
+
+                    <div class="author-info">
+
+                        <h4>Carlos Mendes</h4>
+
+                        <p>Rio de Janeiro, Brasil</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+           
+
+            <!-- Testimonial 3 -->
+
+            <div class="testimonial-card">
+
+                <p class="testimonial-text">"O tour gastronômico foi o ponto alto da nossa viagem. Comidas deliciosas e histórias fascinantes sobre a cultura portuguesa."</p>
+
+                <div class="testimonial-author">
+
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sophie Martin" class="author-avatar">
+
+                    <div class="author-info">
+
+                        <h4>Sophie Martin</h4>
+
+                        <p>Paris, França</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+ 
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-logo split-title">
+
+            <span class="white">Porto</span>
+
+            <span class="accent">EPIC</span>
+
+            <span class="white">Tours</span>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#tours">Tours</a>
+
+            <a href="#">Sobre Nós</a>
+
+            <a href="#">Contactos</a>
+
+            <a href="#">Blog</a>
+
+        </div>
+
+        <div class="social-icons">
+
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+            <a href="#"><i class="fab fa-twitter"></i></a>
+
+            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+
+        </div>
+
+        <div class="copyright">
+
+            &copy; 2023 Porto EPIC Tours. Todos os direitos reservados.
+
+        </div>
+
+    </footer>
+
+ 
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Intersection Observer para animações
+
+            const observerOptions = {
+
+                threshold: 0.1,
+
+                rootMargin: '0px 0px -50px 0px'
+
+            };
+
+ 
+
+            const observer = new IntersectionObserver((entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('animate');
+
+                    }
+
+                });
+
+            }, observerOptions);
+
+ 
+
+            document.querySelectorAll('.section-header, .tour-card, .testimonial-card').forEach(el => {
+
+                observer.observe(el);
+
+            });
+
+ 
+
+            // Smooth scrolling para links
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+                anchor.addEventListener('click', function(e) {
+
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+
+                        behavior: 'smooth'
+
+                    });
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
